@@ -60,20 +60,12 @@ build/
 hs_err_pid*
 replay_pid*
 
-# Git Modules
-
 ### Private Resources ###
 # Ignore the entire priv-resources folder to keep sensitive data out of git
-priv-resources/
-
-# Alternative: If you want to keep the folder structure but ignore the DDL content
-priv-resources/database-schema/database/ddl/*.sql
-# !priv-resources/database-schema/database/ddl/.gitkeep
+priv/*
 
 ### Database Schema ###
-# Ignore any copied DDL files in main resources
+# If using submodule approach, the submodule folder will be tracked automatically
+# If copying from priv-resources, ignore the copied files
 src/main/resources/data/db/ddl.sql
 target/classes/data/db/ddl.sql
-
-# Keep submodule reference (when you implement it)
-!database-schema/
