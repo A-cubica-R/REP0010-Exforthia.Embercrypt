@@ -62,7 +62,7 @@ replay_pid*
 
 ### Private Resources ###
 # Ignore the entire priv-resources folder to keep sensitive data out of git
-priv/*
+priv/*/
 
 ### Database Schema ###
 # If using submodule approach, the submodule folder will be tracked automatically
