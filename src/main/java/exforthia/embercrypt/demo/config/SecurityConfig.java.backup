@@ -1,0 +1,38 @@
+package exforthia.embercrypt.demo.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.web.SecurityFilterChain;
+
+@Configuration
+@EnableWebSecurity
+public class SecurityConfig {
+
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        http
+            .authorizeHttpRequests(authz -> authz
+                // Permitir acceso a Swagger UI y API docs
+                .requestMatchers(
+                    "/swagger-ui/**",
+                    "/swagger-ui.html",
+                    "/api-docs/**",
+                    "/v3/api-docs/**",
+                    "/webjars/**"
+                ).permitAll()
+                // Permitir acceso a endpoints de la API (temporal para desarrollo)
+                .requestMatchers("/api/v1/**").permitAll()
+                // Cualquier otra petición requiere autenticación
+                .anyRequest().authenticated()
+            )
+            // Deshabilitar CSRF para APIs REST (temporal para desarrollo)
+            .csrf(csrf -> csrf.disable())
+            // Configuración básica para desarrollo
+            .httpBasic(httpBasic -> httpBasic.disable())
+            .formLogin(form -> form.disable());
+
+        return http.build();
+    }
+}

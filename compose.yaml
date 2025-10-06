@@ -1,0 +1,10 @@
+services:
+  mysql:
+    image: 'mysql:latest'
+    environment:
+      - 'MYSQL_DATABASE=exforthia-embercrypt'
+      - 'MYSQL_PASSWORD=011a235b81321c345589.DEF$'
+      - 'MYSQL_ROOT_PASSWORD=root'
+      - 'MYSQL_USER=a_cubica_r'
+    ports:
+      - '3306'
