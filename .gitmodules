@@ -1,0 +1,3 @@
+[submodule "priv-resources/database-schema"]
+	path = priv-resources/database-schema
+	url = https://github.com/A-cubica-R/MOD0001-Exforthia.Embercrypt.Resources

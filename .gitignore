@@ -59,3 +59,21 @@ build/
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
+
+# Git Modules
+
+### Private Resources ###
+# Ignore the entire priv-resources folder to keep sensitive data out of git
+priv-resources/
+
+# Alternative: If you want to keep the folder structure but ignore the DDL content
+priv-resources/database-schema/database/ddl/*.sql
+# !priv-resources/database-schema/database/ddl/.gitkeep
+
+### Database Schema ###
+# Ignore any copied DDL files in main resources
+src/main/resources/data/db/ddl.sql
+target/classes/data/db/ddl.sql
+
+# Keep submodule reference (when you implement it)
+!database-schema/
