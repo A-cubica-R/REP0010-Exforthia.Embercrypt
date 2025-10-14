@@ -7,6 +7,7 @@ package exforthia.embercrypt.funct.mappers;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
 import org.mapstruct.Mappings;
+import org.mapstruct.NullValuePropertyMappingStrategy;
 import org.mapstruct.Mapping;
 
 import exforthia.embercrypt.persistence.entities.VaultOtp;
@@ -21,7 +22,7 @@ import exforthia.embercrypt.rest.dto.sender.VaultOtpSender;
  * 
  * @author Telosys
  */
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
 public interface VaultOtpMappr {
 
     /**
